@@ -1,20 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      REQRES
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!--  para gerar essa pasta create-cliente no terminal = (ionic g page create-cliente) -->
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+        <ion-input type="email" fill="outline" label="Email" labelPlacement="floating" helperText="E-mail" ></ion-input><br>
+        <br>
+        <ion-input type="text" fill="outline" label="Nome" labelPlacement="floating" helperText="Nome" ></ion-input><br>
+        <br>
+        <ion-input type="text" fill="outline" label="Sobrenome" labelPlacement="floating" helperText="Sobrenome" ></ion-input><br>
+        <br>
+        <ion-input type="text" fill="outline" label="Foto" labelPlacement="floating" helperText="Foto" ></ion-input><br>
+        <br>
+
+  <ion-button   color="success" expand="block">SALVA</ion-button>
 </ion-content>

@@ -1,4 +1,4 @@
-export class Reqres
+export class Reqre
 {
     id?: number;
     email: string | undefined;
