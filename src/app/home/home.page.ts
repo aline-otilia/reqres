@@ -1,39 +1,26 @@
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ReqresService } from '../services/reqres.service';
+import { User } from '../models/User.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule,RouterLink]
 })
-export class HomePage {
-id = 0;
-email = '';
-nome = '';
-sobrenome = '';
-foto = '';
-  
+export class HomePage implements OnInit {
+  listaUsuarios : User[] = [];
 
-  constructor(
-    private activeteRoute: ActivatedRoute,
-    private router: Router,
-    private reqreService: ReqresService
-  ) {}
-
+  constructor(private reqresService : ReqresService) { }
   ngOnInit() {
-    this.id = this.activeteRoute.snapshot.params['id'];
-
-    this.reqreService.getOne(this.id).subscribe(retorno =>{
-      this.email = retorno.email as string;
-      this.nome = retorno.first_name as string;
-      this.sobrenome = retorno.last_name as string;
-      this.foto = retorno.avatar as string;
+    this.reqresService.getUsers().subscribe(resposta =>{
+      this.listaUsuarios = resposta.data as User[];
     })
   }
+
 }

@@ -1,8 +1,12 @@
-export class Reqre
-{
-    id?: number;
-    email: string | undefined;
-    first_name: string | undefined;
-    last_name: string | undefined;
-    avatar: string | undefined;
+import { Suporte } from "./Suporte.model";
+import { User } from "./User.model";
+
+export class Reqre {
+    page?: number | undefined;
+    per_page?: number | undefined;
+    total?: number | undefined;
+    total_pages?: number | undefined;
+    data?: User[] | User | undefined;
+    support?: Suporte | undefined;
 }
+

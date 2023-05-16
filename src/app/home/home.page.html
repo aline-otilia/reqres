@@ -1,22 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      REQRES
-    </ion-title>
+    <ion-title>lista-usuarios</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <!--  para gerar essa pasta create-cliente no terminal = (ionic g page create-cliente) -->
+<ion-content [fullscreen]="true">
 
-        <ion-input type="email" fill="outline" label="Email" labelPlacement="floating" helperText="E-mail" ></ion-input><br>
-        <br>
-        <ion-input type="text" fill="outline" label="Nome" labelPlacement="floating" helperText="Nome" ></ion-input><br>
-        <br>
-        <ion-input type="text" fill="outline" label="Sobrenome" labelPlacement="floating" helperText="Sobrenome" ></ion-input><br>
-        <br>
-        <ion-input type="text" fill="outline" label="Foto" labelPlacement="floating" helperText="Foto" ></ion-input><br>
-        <br>
+    <ion-button expand="full"  [routerLink]="['/home']">Criar Usuario</ion-button>
 
-  <ion-button   color="success" expand="block">SALVA</ion-button>
+  <ion-item *ngFor="let usuario of listaUsuarios">
+    <ion-label>
+      <h1>{{usuario.first_name}} {{usuario.last_name}}</h1>
+      <p>{{usuario.email}}</p>
+    </ion-label>
+    <ion-button [routerLink]="['/home',usuario.id]"><ion-icon name="create"></ion-icon></ion-button>
+  </ion-item>
 </ion-content>
